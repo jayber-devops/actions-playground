@@ -3,7 +3,7 @@ name: Release - Upload samples.zip
 on:
   release:
     types:
-      - created
+      - published
 
 jobs:
   upload-samples:
