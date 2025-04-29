@@ -24,3 +24,6 @@ jobs:
       - name: Print patched environment.yml
         run: |
           cat environment.yml
+      - name: Print git diff
+        run: |
+          git diff
