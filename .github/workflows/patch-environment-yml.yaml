@@ -1,0 +1,26 @@
+name: Patch environment.yml and print
+
+on:
+  workflow_dispatch:
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Patch environment.yml
+        shell: python
+        run: |
+          import yaml
+          import re
+          with open('environment.yml', 'r') as f:
+            env = yaml.safe_load(f)
+          is_python = lambda dep: type(dep) is str and re.split('=|<|>| |!=', dep)[0] == 'python'
+          env['dependencies'] = [dep for dep in env['dependencies'] if not is_python(dep)]
+          with open('environment.yml', 'w') as f:
+            yaml.safe_dump(env, f)
+      - name: Print patched environment.yml
+        run: |
+          cat environment.yml
