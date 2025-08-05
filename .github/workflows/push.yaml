@@ -1,0 +1,19 @@
+name: Pixi Update
+on:
+  workflow_dispatch:
+
+jobs:
+    touch-and-push:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+      - uses: actions/checkout@v4
+      - run: |
+            git config --global user.name "github-action [bot]"
+            git config --global user.email "arcgis@users.noreply.github.com"
+            ts=$(date +%s%3N)
+            touch $ts
+            git add $ts
+            git commit -m "[Automated] Add timestamp"
+            git push
