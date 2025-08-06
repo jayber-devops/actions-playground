@@ -20,4 +20,4 @@ jobs:
             touch $ts
             git add $ts
             git commit -m "[Automated] Add timestamp"
-            git push
+            git push -f
