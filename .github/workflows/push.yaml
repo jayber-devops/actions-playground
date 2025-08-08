@@ -1,4 +1,4 @@
-name: Pixi Update
+name: Push - Bypass Ruleset
 on:
   workflow_dispatch:
 
