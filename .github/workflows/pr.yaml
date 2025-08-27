@@ -1,0 +1,12 @@
+name: PR
+on:
+  pull_request:
+
+jobs:
+    do-work:
+      runs-on: ubuntu-latest
+      steps:
+      - if: github.repository == 'jayber-devops/actions-playground'
+        run: |
+            echo ${{ github }}
+            echo "Hello, World!"
