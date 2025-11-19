@@ -14,7 +14,7 @@ jobs:
                   activate-environment: true
             - run: cargo build --release
               working-directory: ./rust/mylib
-            - uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v5
               with:
                   name: mylib-windows
                   path: ./rust/mylib/target/release/**/*
