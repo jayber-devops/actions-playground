@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Jay Roebuck <jroebuck@esri.com>"]
+channels = ["conda-forge"]
+name = "actions-playground"
+platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "~=3.13.0"
+rust = "~=1.90.0"
